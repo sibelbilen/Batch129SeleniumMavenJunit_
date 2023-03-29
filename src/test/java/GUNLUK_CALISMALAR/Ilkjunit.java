@@ -28,6 +28,10 @@ public class Ilkjunit {
 
         @After
 
+     //gonderdim
+
+
+
         public void tearDown(){
             driver.close();
         }
