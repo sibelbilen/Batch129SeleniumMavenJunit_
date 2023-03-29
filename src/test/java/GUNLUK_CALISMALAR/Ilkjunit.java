@@ -27,7 +27,7 @@ public class Ilkjunit {
 
 
         @After
-
+//ikinci
      //gonderdim
         //ikinci gonderim
 
