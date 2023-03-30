@@ -34,28 +34,23 @@ public class C03 {
         // genisligi 225 ve uzunlugu 225 olan resimlerin hepsine sırasıyla tıklayınız ve sayfa baslıgını yazdırınız
 
 
-
         for (int i = 0; i <24 ; i++) {
 
-            List<WebElement> resimler = driver.findElements(By.xpath("//img[@width='225' and  @height='225']"));
+            List<WebElement> resimler =
+
+
+
+                    driver.findElements(By.xpath("//img[@width='225' and  @height='225']"));
 
             resimler.get(i).click();
 
             System.out.println(driver.getTitle());
 
             driver.navigate().back();
-
-
         }
-
-
 
         // sayfayı kapatınız
         driver.close();
-
-
-
-
 
     }
 }

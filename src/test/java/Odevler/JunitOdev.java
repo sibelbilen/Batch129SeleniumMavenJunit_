@@ -39,7 +39,7 @@ secin
 
     public void after(){
 
-     //   driver.close();
+      driver.close();
         //@After kullnadim neden ?:her test methodundan sonra calisacak
     }
 
@@ -47,7 +47,8 @@ secin
 
     public void setup() throws InterruptedException {
         Thread.sleep(15);
-        driver.get("https://www.facebook.com ");//Buraya bu @Before methodu koydum neden ?her test methodundan once calsiir
+        driver.get("https://www.facebook.com ");//Buraya bu @Before methodu koydum neden ?
+        // her test methodundan once calsiir
     }
 
     @Test
