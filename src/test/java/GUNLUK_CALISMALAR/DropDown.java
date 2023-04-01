@@ -35,50 +35,38 @@ public class DropDown {
 @After
     public void kapama() throws InterruptedException {
         Thread.sleep(5000);
-        driver.close();
+     driver.close();
 }
 
 @Test
 
 public void selectByIndex() throws InterruptedException {
     //1. Locate Dropdown Element
-WebElement year= driver.findElement(By.xpath("//select[@id='year']"));
 
+WebElement year= driver.findElement(By.xpath("//select[@id='year']"));
 
     //2. Select objesi oluştur
 
-    Select yearDropDown=new Select(year);
+Select arama=new Select(year);
+arama.selectByIndex(2);
 
     //Select objesini kullanarak 3 farklı şekilde seçim yapabiliriz:
 
-    Thread.sleep(7000);
-yearDropDown.selectByIndex(2);
+
 
     //Ay şeçimi:
     Thread.sleep(7000);
-    WebElement month = driver.findElement(By.xpath("//select [@id='month']"));
-Select monthDropDown=new Select(month);
-monthDropDown.selectByVisibleText("July");
+WebElement ay=driver.findElement(By.xpath("//select[@id='month']"));
 
+Select month=new Select(ay);
+month.selectByVisibleText("July");
 
     //Gün Seçimi
 
-    WebElement day= driver.findElement(By.xpath("//select [@id='day']"));
-Select dayDropDown=new Select(day);
-dayDropDown.selectByValue("2");
+WebElement gun= driver.findElement(By.xpath("//select[@id='day']"));
 
-}
-
-@Test
-
-    public void printall(){
-
-     WebElement state=driver.findElement(By.xpath("//select [@id='state']"));
-
-     Select eyalet=new Select(state);
-    List<WebElement>stateList=eyalet.getOptions();
-
-    stateList.stream().forEach(t-> System.out.println(t.getText()));
+Select day=new Select(gun);
+day.selectByValue("3");
 }
 
 }
