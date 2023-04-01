@@ -49,7 +49,7 @@ public class Odev07 {
 
       //  - electronics bölümüne tıklayınız
         driver.findElement(By.xpath("(//*[text()='Electronics'])[2]")).click();
-       genislikUzunluk = driver.findElements(By.xpath("//*[@width='225' and @height='225']"));
+        genislikUzunluk = driver.findElements(By.xpath("//*[@width='225' and @height='225']"));
         for (int i = 0; i < genislikUzunluk.size() ; i++) {
 
                genislikUzunluk= driver.findElements(By.xpath("//*[@width='225' and @height='225']"));
