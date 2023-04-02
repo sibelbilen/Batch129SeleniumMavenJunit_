@@ -24,9 +24,10 @@ Not: Select Class'ı kullanalım
  */
 
     WebDriver driver;
+
     @Before
 
-    public  void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -42,10 +43,7 @@ Not: Select Class'ı kullanalım
 
     }
 
-    @Test
-    public void test01() {
-
 
     }
-    }
+
 
