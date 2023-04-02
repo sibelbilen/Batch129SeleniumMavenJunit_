@@ -20,9 +20,7 @@ import org.openqa.selenium.WebElement;
  */
 public class Odev09 extends TestBase {
 
-    @Test
-    public void name() {
-    }
+
 
     @Test
     public void test01() throws InterruptedException {
@@ -65,7 +63,7 @@ driver.findElement(By.xpath("//*[text()='click the button to demonstrate the pro
           driver.switchTo().alert().sendKeys("sibel");
           driver.switchTo().alert().accept();
           Thread.sleep(3000);
-          //-Çıkan mesajı konsola yazdırınız
+
 
 
           //-Çıkan mesajın 'Hello <isminiz> How are you today' yazdığını doğrulayınız
