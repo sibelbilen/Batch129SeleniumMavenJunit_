@@ -3,7 +3,6 @@ package Odevler;
 import Utilities.TestBase;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -18,7 +17,7 @@ import org.openqa.selenium.WebElement;
 -Çıkan mesajı konsola yazdırınız
 -Çıkan mesajın 'Hello <isminiz> How are you today' yazdığını doğrulayınız
  */
-public class Odev09 extends TestBase {
+public class Odev09_Allert extends TestBase {
 
 
     @Test
