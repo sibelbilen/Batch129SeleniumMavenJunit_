@@ -1,4 +1,4 @@
-package GUNLUK_CALISMALAR;
+package GUNLUK_CALISMALAR.day01;
 
 
 
