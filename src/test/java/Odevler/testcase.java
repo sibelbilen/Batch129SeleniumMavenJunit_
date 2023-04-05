@@ -40,7 +40,7 @@ public class testcase  extends TestBase {
         //5. Herhangi bir marka adına tıklayın
 
 driver.findElement(By.xpath("//*[text()='H&M']")).click();
-        //6. Kullanıcının marka sayfasına yönlendirildiğini ve marka ürünlerinin görüntülendiğini doğrulayın.
+        //6. Kullanıcının marka sayfasına yönlendirildiğini ve marka ürünlerinin görüntülendiğini doğrulayın..
 
         //7. Sol taraftaki çubukta herhangi bir başka marka bağlantısına tıklayın
         //8. Kullanıcının o marka sayfasına gittiğini ve ürünleri görebildiğini doğrulayın
