@@ -1,38 +1,50 @@
 package Odevler;
 
+import Utilities.TestBase;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class testcase {
-    public static void main(String[] args) throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        Thread.sleep(2000);
+public class testcase  extends TestBase {
 
-        /*
-        1. Tarayıcıyı başlatın
+
+/*
+1. Tarayıcıyı başlatın
 2. 'http://automationexercise.com' URL'sine gidin
-3. Ana sayfanın başarıyla göründüğünü doğrulayın
-4. 'Kaydol / Giriş Yap' düğmesine tıklayın
-5. 'Yeni Kullanıcı Kaydı!'nı doğrulayın! görünür
-6. Adı ve e-posta adresini girin
-7. 'Kaydol' düğmesini tıklayın
-8. 'HESAP BİLGİLERİNİ GİRİN' ifadesinin göründüğünü doğrulayın
-9. Ayrıntıları doldurun: Unvan, Ad, E-posta, Parola, Doğum tarihi
-10. 'Bültenimize kaydolun!' onay kutusunu seçin.
-11. 'Ortaklarımızdan özel teklifler alın!' onay kutusunu seçin.
-12. Ayrıntıları doldurun: Ad, Soyad, Şirket, Adres, Adres2, Ülke, Eyalet, Şehir, Posta Kodu, Cep Numarası
-13. 'Hesap Oluştur düğmesini' tıklayın
-14. 'HESAP OLUŞTURULDU!' görünür
-15. 'Devam Et' düğmesini tıklayın
-16. "Kullanıcı adı olarak oturum açıldı" ifadesinin görünür olduğunu doğrulayın
-17. 'Hesabı Sil' düğmesini tıklayın
-18. 'HESAP SİLİNDİ!' görünür ve 'Devam Et' düğmesini tıklayın
-         */
+3. 'Ürünler' düğmesine tıklayın
+4. Sol taraftaki çubukta Markaların göründüğünü doğrulayın
+5. Herhangi bir marka adına tıklayın
+6. Kullanıcının marka sayfasına yönlendirildiğini ve marka ürünlerinin görüntülendiğini doğrulayın.
+7. Sol taraftaki çubukta herhangi bir başka marka bağlantısına tıklayın
+8. Kullanıcının o marka sayfasına gittiğini ve ürünleri görebildiğini doğrulayın
+ */
+
+    @Test
+    public void name() {
+
+
+
+        //2. 'http://automationexercise.com' URL'sine gidin
+        driver.get("http://automationexercise.com");
+        //3. 'Ürünler' düğmesine tıklayın
+        driver.findElement(By.xpath("//*[text()=' Products']")).click();
+        //4. Sol taraftaki çubukta Markaların göründüğünü doğrulayın
+        WebElement urunler= driver.findElement(By.xpath("//*[text()='Brands']"));
+        Assert.assertTrue(urunler.isDisplayed());
+        //5. Herhangi bir marka adına tıklayın
+
+driver.findElement(By.xpath("//*[text()='H&M']")).click();
+        //6. Kullanıcının marka sayfasına yönlendirildiğini ve marka ürünlerinin görüntülendiğini doğrulayın.
+
+        //7. Sol taraftaki çubukta herhangi bir başka marka bağlantısına tıklayın
+        //8. Kullanıcının o marka sayfasına gittiğini ve ürünleri görebildiğini doğrulayın
+
     }
 }
+
