@@ -32,7 +32,7 @@ driver.get("https://techproeducation.com");
        bekle(2);
        actions.sendKeys(Keys.ARROW_DOWN).perform();//Arrow_Down tusu PAGE_DOWN tusundan daha az asagi kaydiriyor.
        //perform uygulanmazsa islem calismiyor.
-//ss
+//sseus
        bekle(2);
        actions.sendKeys(Keys.ARROW_DOWN).perform();
 
