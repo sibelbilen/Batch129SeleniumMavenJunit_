@@ -40,6 +40,8 @@ public class C03_Cookies extends TestBase {
 
 
 //        3-Sayfadaki cookies sayisinin 5’den buyuk oldugunu test edin
+
+
         int tumCookieSayisi = allCookies.size();
         System.out.println("tumCookieSayisi = " + tumCookieSayisi);
         assertTrue(allCookies.size() > 5);
