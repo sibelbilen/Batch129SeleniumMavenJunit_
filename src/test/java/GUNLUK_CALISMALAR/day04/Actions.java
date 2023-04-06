@@ -17,6 +17,6 @@ public class Actions extends TestBase {
         //Sayfanın alt tarafına gidin
 
         //Sayfanın üst tarafına gidin
-//sss
+//ssshkjjıh
     }
 }
