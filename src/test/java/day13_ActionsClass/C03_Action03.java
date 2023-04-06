@@ -22,7 +22,7 @@ driver.get("https://techproeducation.com");
        // Sayfanın alt tarafına gidin
        //reklam kapatma icin
        driver.findElement(By.xpath("(//i[@class='eicon-close'])")).click();
-
+//ssss
      Actions actions=new Actions(driver);
      bekle(2);
      actions.sendKeys(Keys.PAGE_DOWN).perform();
@@ -32,7 +32,7 @@ driver.get("https://techproeducation.com");
        bekle(2);
        actions.sendKeys(Keys.ARROW_DOWN).perform();//Arrow_Down tusu PAGE_DOWN tusundan daha az asagi kaydiriyor.
        //perform uygulanmazsa islem calismiyor.
-
+//ss
        bekle(2);
        actions.sendKeys(Keys.ARROW_DOWN).perform();
 
