@@ -1,4 +1,4 @@
-package GUNLUK_CALISMALAR.day02;
+package day12_WindowHandle_BasicAuthentication.GUNLUK_CALISMALAR.day02;
 
 import Utilities.TestBase;
 import org.junit.Test;

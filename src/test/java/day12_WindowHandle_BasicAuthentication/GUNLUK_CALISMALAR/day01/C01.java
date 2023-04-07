@@ -1,4 +1,4 @@
-package GUNLUK_CALISMALAR.day01;
+package day12_WindowHandle_BasicAuthentication.GUNLUK_CALISMALAR.day01;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

@@ -1,4 +1,4 @@
-package GUNLUK_CALISMALAR.day03_Iframe_WindowsHandle;
+package day12_WindowHandle_BasicAuthentication.GUNLUK_CALISMALAR.day03_Iframe_WindowsHandle;
 
 import Utilities.TestBase;
 import org.junit.Assert;
