@@ -8,18 +8,29 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.security.Key;
+
 public class TestCase_Actions extends TestBase {
-    /*
-    2. 'http://automationexercise.com' URL'sine gidin
+/*
+. Tarayıcıyı başlatın
+2. 'http://automationexercise.com' URL'sine gidin
 3. Ana sayfanın başarıyla göründüğünü doğrulayın
 4. 'Kaydol / Giriş Yap' düğmesine tıklayın
-5. "Hesabınıza giriş yapın"ın göründüğünü doğrulayın
-6. Doğru e-posta adresini ve şifreyi girin
-7. 'Giriş' düğmesine tıklayın
-8. "Kullanıcı adı olarak oturum açıldı" ifadesinin görünür olduğunu doğrulayın
-9. 'Hesabı Sil' düğmesini tıklayın
-10. 'HESAP SİLİNDİ!' görünür
-     */
+5. 'Yeni Kullanıcı Kaydı!'nı doğrulayın! görünür
+6. Adı ve e-posta adresini girin
+7. 'Kaydol' düğmesini tıklayın
+8. 'HESAP BİLGİLERİNİ GİRİN' ifadesinin göründüğünü doğrulayın
+9. Ayrıntıları doldurun: Unvan, Ad, E-posta, Parola, Doğum tarihi
+10. 'Bültenimize kaydolun!' onay kutusunu seçin.
+11. 'Ortaklarımızdan özel teklifler alın!' onay kutusunu seçin.
+12. Ayrıntıları doldurun: Ad, Soyad, Şirket, Adres, Adres2, Ülke, Eyalet, Şehir, Posta Kodu, Cep Numarası
+13. 'Hesap Oluştur düğmesini' tıklayın
+14. 'HESAP OLUŞTURULDU!' görünür
+15. 'Devam Et' düğmesini tıklayın
+16. "Kullanıcı adı olarak oturum açıldı" ifadesinin görünür olduğunu doğrulayın
+17. 'Hesabı Sil' düğmesini tıklayın
+18. 'HESAP SİLİNDİ!' görünür ve 'Devam Et' düğmesini tıklayın
+ */
 
     @Test
     public void test01() {
@@ -39,6 +50,7 @@ Assert.assertTrue(driver.findElement(By.xpath("//h2[.='Login to your account']")
 
         //6. kayit olunuz
 WebElement kayit= driver.findElement(By.xpath("//input[@type='text']"));
+
 actions.clickAndHold(kayit).sendKeys("sibel").sendKeys(Keys.TAB).sendKeys("sibel@gmail.com").sendKeys(Keys.ENTER).perform();
 
 WebElement form= driver.findElement(By.xpath("//div[@id='uniform-id_gender2']"));
@@ -51,15 +63,15 @@ actions.click(form).
         sendKeys(Keys.TAB).
         sendKeys("December").
         sendKeys(Keys.TAB).
-        sendKeys("1998").
+        sendKeys("1998    ").sendKeys(Keys.TAB).
+    click().
+       sendKeys(Keys.TAB).click().
 
-        click().
         sendKeys(Keys.TAB).
-        click().
         sendKeys("sibel").
         sendKeys(Keys.TAB).
         sendKeys("bilen").
-        sendKeys(Keys.TAB).perform();
+      perform();
 
 
 
