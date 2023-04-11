@@ -26,6 +26,8 @@ logo.jpeg dosyasını yükleyin(uopload)
 WebElement dosyaYukleme=driver.findElement(By.xpath("//input[@id='file-upload']"));
 dosyaYukleme.sendKeys(System.getProperty("user.home")+"/Desktop/logo.jpeg");
 
+//  //Gönerilecek(upload) dosyanın adresini choosefile butununa senKeys() metodu ile yazıyoruz. Bu şekilde gödrilecek dosya seçilmiş olur.
+
  WebElement fileUploadButton=driver.findElement(By.xpath("//input[@id='file-submit']"));
    fileUploadButton.click();
 //"File Uploaded!" textinin görüntülendiğini test edin
