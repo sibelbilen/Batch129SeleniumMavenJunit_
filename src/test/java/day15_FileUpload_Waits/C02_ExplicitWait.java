@@ -1,4 +1,14 @@
 package day15_FileUpload_Waits;
 
-public class C02_ExplicitWait {
+import Utilities.TestBase;
+import org.junit.Test;
+
+public class C02_ExplicitWait extends TestBase {
+
+    @Test
+    public void tesst01() {
+
+
+
+    }
 }
