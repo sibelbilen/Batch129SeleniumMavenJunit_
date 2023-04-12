@@ -21,7 +21,7 @@ Bu dosyanın varlığını doğrulayın.
 String userDir=System.getProperty("user.dir");
 //src/test/java/day14_JavaFaker_FileExist
 
-        boolean isExist = Files.exists(Paths.get(userHOME + "\\Desktop\\logo (1).jpeg"));
+        boolean isExist = Files.exists(Paths.get(userHOME + "/Desktop/logo.jpeg"));
         System.out.println("isExist = " + isExist);
 assertTrue(isExist);
 
