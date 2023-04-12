@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import static org.junit.Assert.assertTrue;
 // https://html.com/tags/iframe sayfasına gidiniz
 // Videoyu görecek kadar asagiya ininiz
 // Videoyu izlemek icin Play tusuna basiniz
@@ -44,9 +46,12 @@ playTusu.click();
          */
 
         // Videoyu calistirdiginizi test ediniz
-
+        WebElement youTubeYazisi = driver.findElement(By.xpath("//a[@class='ytp-youtube-button ytp-button yt-uix-sessionlink']"));
+        assertTrue(youTubeYazisi.isDisplayed());
 
         // 'Powerful,but easy to misuse' yazısının gorunur oldugunu test ediniz
-
+        driver.switchTo().parentFrame();
+        WebElement powerYazisi = driver.findElement(By.xpath("//span[@id='Powerful_but_easy_to_misuse']"));
+        assertTrue(powerYazisi.isDisplayed());
     }
 }
