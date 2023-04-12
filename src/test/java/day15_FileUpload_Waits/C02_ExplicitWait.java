@@ -32,7 +32,9 @@ public class C02_ExplicitWait extends TestBase {
 
         //Implicit wait ile test geçmedi. Explicit wait kullanacağız:
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
         WebElement helloWorldText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']//h4")));
+
       WebElement helloWordTest=  driver.findElement(By.xpath("//div[@id='finish']/h4"));
         Assert.assertTrue(helloWordTest.isDisplayed());
 
