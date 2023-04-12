@@ -38,7 +38,8 @@ driver.switchTo().frame(iframe);
         bekle(2);
 actions.moveByOffset(255,60).release().perform();
         //-Sarı olduğunu test edelim
-       WebElement sari driver.findElement(By.xpath("//div[@id='swatch']"));
+       WebElement sari= driver.findElement(By.xpath("//div[@id='swatch']"));
+
 
     }
 }
