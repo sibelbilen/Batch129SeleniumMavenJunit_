@@ -22,4 +22,16 @@ public class C02_TimeOutException extends TestBase {
 
 
     }
+    @Test
+    public void timeOutExcepitonTest2(){
+        driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
+
+        driver.findElement(By.xpath("//div[@id='start']//button")).click();
+
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
+        boolean isTrue = wait.until(ExpectedConditions.textToBe(By.xpath("//div[@id='finish']//h4"),"Hello World!"));//org.openqa.selenium.TimeoutException
+        //Locator doğru ama yeterli bekleme süresi olmadığı için TimeoutException alıyoruz.
+        System.out.println(isTrue);
+
+    }
 }
