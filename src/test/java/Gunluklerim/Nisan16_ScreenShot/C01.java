@@ -46,8 +46,8 @@ public class C01 extends TestBase {
         driver.get("https://amazon.com");
         //kayit ettigimiz ekran resmi her seferinde ayni dosyanin uzerine yazmamais icin dosya isminden sonra bir tarih atariz
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-
+String dosya= "src/test/ScreenShoot/screenshot.png";
         TakesScreenshot ts = (TakesScreenshot) driver;
-FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(tarih));
+FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(tarih,dosya));
     }
 }
