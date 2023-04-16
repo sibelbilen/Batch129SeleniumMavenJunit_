@@ -48,6 +48,7 @@ public class C01 extends TestBase {
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
 String dosya= "src/test/ScreenShoot/screenshot.png";
         TakesScreenshot ts = (TakesScreenshot) driver;
-FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(tarih,dosya));
+FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(tarih));
+
     }
 }
