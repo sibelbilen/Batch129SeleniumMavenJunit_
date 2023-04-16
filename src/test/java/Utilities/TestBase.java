@@ -1,5 +1,8 @@
 package Utilities;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -25,15 +28,31 @@ public abstract class TestBase {
     //Orn: TestBase base = new TestBase()
     //Bu class'a extends ettiğimiz test classlarından ulaşabiliriz
     protected static WebDriver driver;
+    protected static ExtentReports extentReports; //Raporlamayı başlatır
+    protected static ExtentHtmlReporter extentHtmlReporter;//Raporu HTML formatında düzenler
+    protected static ExtentTest extentTest;//Tüm test aşamalarında extentTest objesi ile bilgi ekleriz
     @Before
     public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        //----------------------------------------------------------------------------------------
+        extentReports = new ExtentReports();
+        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu = "TestOutput/reports/extentReport_"+tarih+".html";
+        extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
+        extentReports.attachReporter(extentHtmlReporter);
+        //Raporda gözükmesini istediğimiz bilgiler için
+        extentReports.setSystemInfo("Browser","Chrome");
+        extentReports.setSystemInfo("Teste","Erol");
+        extentHtmlReporter.config().setDocumentTitle("Extent Report");
+        extentHtmlReporter.config().setReportName("Smoke Test Raporu");
+        extentTest=extentReports.createTest("ExtentTest","Test Raporu");
     }
     @After
     public void tearDown() throws Exception {
+        extentReports.flush();
         bekle(3);
         //driver.quit();
     }
@@ -81,7 +100,7 @@ public abstract class TestBase {
         Select select = new Select(ddm);
         select.selectByValue(secenek);
     }
-    //SwitchToWindow
+    //SwitchToWindow1
     public static void switchToWindow(int sayi){
         List<String> tumWindowHandles = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tumWindowHandles.get(sayi));
@@ -117,4 +136,15 @@ public abstract class TestBase {
             throw new RuntimeException(e);
         }
     }
+    //WebElement ScreenShot
+    public static void webElementResmi(WebElement element){
+        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu = "TestOutput/webElementScreenshot"+tarih+".png";
+        try {
+            FileUtils.copyFile(element.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
