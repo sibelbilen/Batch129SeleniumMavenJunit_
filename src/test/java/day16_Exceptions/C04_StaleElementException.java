@@ -53,30 +53,15 @@ public class C04_StaleElementException extends TestBase {
         WebElement lmsLogin = driver.findElement(By.linkText("LMS LOGIN"));
         lmsLogin.click();
 
-        driver.navigate().back();//techproeducation.com sayfasına geri döndüm ==> Sayfa yeniden yüklendiği için locator adresi silindi.
-        driver.navigate().refresh();
+        driver.get("https://www.techproeducation.com");//LMS'e gittikten sonra techproeducation sayfasına geri dönerek sayfayı yenilemiş oluyorum.
 
-        lmsLogin = driver.findElement(By.linkText("LMS LOGIN"));//Tekrar locate işlemi yaparak lmsLogin objesine yeni adres veriliyor.
-        lmsLogin.click();//Çalıştı
+        try {//Reklamın çıkma yada çıkmamam ihtimali üzerine try-cath yaarak oluşabilecek noSuchElementException'ı handle ediyoruz.
+            driver.findElement(By.xpath("//i[@class='eicon-close']")).click();
+        } catch (Exception ignored) {
+        }
 
-    }
-
-    @Test
-    public void staleElementExceptionTest5(){
-
-        driver.get("https://www.techproeducation.com");
-        driver.findElement(By.xpath("//i[@class='eicon-close']")).click();
-
-        WebElement lmsLogin = driver.findElement(By.linkText("LMS LOGIN"));
-        lmsLogin.click();
-
-        driver.navigate().back();//techproeducation.com sayfasına geri döndüm ==> Sayfa yeniden yüklendiği için locator adresi silindi.
-        driver.navigate().refresh();
-
-        lmsLogin = driver.findElement(By.linkText("LMS LOGIN"));//Tekrar locate işlemi yaparak lmsLogin objesine yeni adres veriliyor.
-        lmsLogin.click();//Çalıştı
+        lmsLogin.click();//org.openqa.selenium.StaleElementReferenceException
 
     }
+
     }
-
-
