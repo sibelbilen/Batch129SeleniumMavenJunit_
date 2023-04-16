@@ -31,21 +31,23 @@ public class C01 extends TestBase {
      */
     @Test
     public void test01() throws IOException {
-driver.get("https://techproeducation.com");
-    //1-ADIM:eKRAN FOTOMUZUN NEREYE KAYDEDECGIMIZI BELIRTMELIYIZ.
-    String dosyaYolu="src/test/ScreenShoot/screenshot.png";
+        driver.get("https://techproeducation.com");
+        //1-ADIM:eKRAN FOTOMUZUN NEREYE KAYDEDECGIMIZI BELIRTMELIYIZ.
+        String dosyaYolu = "src/test/ScreenShoot/screenshot.png";
 //2-ADIM:TakesScreenShot arayuzunden obje olusturalim
-        TakesScreenshot ts=(TakesScreenshot) driver;
+        TakesScreenshot ts = (TakesScreenshot) driver;
 //3-ADIM:FileUtils'o file nesnesiyle kullanacagiz
-FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
     }
+
     @Test
 
-    public void test02(){
+    public void test02() throws IOException {
         driver.get("https://amazon.com");
         //kayit ettigimiz ekran resmi her seferinde ayni dosyanin uzerine yazmamais icin dosya isminden sonra bir tarih atariz
-        String tarih =new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
 
-
+        TakesScreenshot ts = (TakesScreenshot) driver;
+FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(tarih));
     }
 }
