@@ -8,6 +8,8 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class C01 extends TestBase {
 
@@ -35,7 +37,15 @@ driver.get("https://techproeducation.com");
 //2-ADIM:TakesScreenShot arayuzunden obje olusturalim
         TakesScreenshot ts=(TakesScreenshot) driver;
 //3-ADIM:FileUtils'o file nesnesiyle kullanacagiz
-        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+    }
+    @Test
+
+    public void test02(){
+        driver.get("https://amazon.com");
+        //kayit ettigimiz ekran resmi her seferinde ayni dosyanin uzerine yazmamais icin dosya isminden sonra bir tarih atariz
+        String tarih =new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+
 
     }
 }
