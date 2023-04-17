@@ -9,7 +9,7 @@ import java.util.List;
 
 //    Task 1 : Table1’i yazdırın
 //    Task 2 : 3. Satır verilerini yazdırın
-//    Task 3 : Son verilerini verileri yazdırın
+//    Task 3 : Son satırın verilerini yazdırın
 //    Task 4 : 5. Sütun verilerini yazdırın
 //    Task 5 : Iki parametreli bir Java metodu oluşturalım: printData
 //    Parameter 1 = satır numarası
@@ -54,4 +54,26 @@ satir3List.forEach(t-> System.out.println(t.getText()+" | "));
 
 
     }
-}
+
+    //    Task 3 : Son satırın verilerini yazdırın
+
+
+        @Test
+        public void sonSatirVerileri(){
+            driver.get("https://the-internet.herokuapp.com/tables");
+            List<WebElement> sonSatirList = driver.findElements(By.xpath("//table[@id='table1']//tbody/tr[last()]/td"));
+            //last() ==> ile son satır indeksini yazıyorum.
+            sonSatirList.forEach(t-> System.out.print(t.getText()+" | "));
+
+        }
+
+    //    Task 4 : 5. Sütun verilerini yazdırın
+    @Test
+    public void sutun5Verileri() {
+        driver.get("https://the-internet.herokuapp.com/tables");
+        List<WebElement> sutun5List = driver.findElements(By.xpath("//table[@id='table1']//td[5]"));
+        sutun5List.forEach(t-> System.out.print(t.getText()+" | "));
+
+    }
+    }
+
