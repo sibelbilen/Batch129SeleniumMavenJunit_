@@ -21,13 +21,15 @@ public class ExplicitWait extends TestBase {
 
         //https://the-internet.herokuapp.com/dynamic_loading/1
         driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
+
+
         //Start buttonuna tıklayın
 driver.findElement(By.xpath("//div[@id='start']/button")).click();
-        //Hello World! Yazının sitede oldugunu test edin
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement helloText=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']/h4")));
 
-        WebElement helloWordtest= driver.findElement(By.xpath("//div[@id='finish']/h4"));
-        Assert.assertTrue(helloWordtest.isDisplayed());
+       // Hello World! Yazının sitede oldugunu test edin
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+  WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h4")));
+
+        Assert.assertTrue(element.isDisplayed());
     }
 }
