@@ -75,5 +75,33 @@ satir3List.forEach(t-> System.out.println(t.getText()+" | "));
         sutun5List.forEach(t-> System.out.print(t.getText()+" | "));
 
     }
+    //    Task 5 : Iki parametreli bir Java metodu oluşturalım: printData
+//    Parameter 1 = satır numarası
+//    Parameter 2 = sütun numarası
+//    printData(2,3);  => 2. satır, 3. sütundaki veriyi yazdırsın.
+
+
+
+
+
+
+    public void printData(int satir, int sutun) {
+
+        driver.get("https://the-internet.herokuapp.com/tables");
+        WebElement belirliVeri = driver.findElement(By.xpath("//table[@id='table1']/tbody/tr[" + satir + "]/td[" + sutun + "]"));
+        System.out.println(belirliVeri.getText());
+
     }
+
+    @Test
+    public void printDataTest() {
+
+        printData(2, 3);//fbach@yahoo.com
+        printData(3, 5);//http://www.jdoe.com
+
+    }
+
+
+
+}
 
