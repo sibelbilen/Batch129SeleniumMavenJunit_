@@ -17,15 +17,16 @@ public class Odev13 extends TestBase {
 
     @Test
     public void name() {
-        ////https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver sayfasına gidelim
-       driver.get("https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver");
-
-       //    ////Click me, to open an alert after 5 seconds butonuna basalım
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(6));
-        WebElement alertBekleme=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='alert']")));
-        driver.findElement(By.xpath("//button[@id='alert']")).click();
-        ////Çıkan alert'i kapatalım
-
-alertAccept();
+        //https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver sayfasına gidelim
+        driver.get("https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver");
+        //Click me, to open an alert after 5 seconds butonuna basalım
+        WebElement button = driver.findElement(By.xpath("//*[@id='alert']"));
+        button.click();
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.alertIsPresent());
+        //Çıkan alert'i kapatalım
+        driver.switchTo().alert().accept();
     }
-}
+
+    }
+
