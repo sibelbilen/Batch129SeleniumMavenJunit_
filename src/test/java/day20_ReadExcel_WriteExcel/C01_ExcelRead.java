@@ -11,6 +11,8 @@ import org.junit.Test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 Capitals.xlsx dosyasından 1. satır 2. sütundaki hücreyi yazdırın
@@ -53,6 +55,15 @@ int sonkullanilanSatirIndexi=sheet1.getLastRowNum();
         int KullanilanToplamSatirSayisi=sheet1.getPhysicalNumberOfRows();
         System.out.println("KullanilanToplamSatirSayisi = " + KullanilanToplamSatirSayisi);
 //        Ülke-Başkent şeklinde verileri yazdırın
+        Map<String, String> ulkelerVeBaskentleri = new HashMap<>();
 
+        for (int satirIndeks = 1; satirIndeks <KullanilanToplamSatirSayisi; satirIndeks++) {
+
+            String ulkeAdi = sheet1.getRow(satirIndeks).getCell(0).toString();
+            String baskentAdi = sheet1.getRow(satirIndeks).getCell(1).toString();
+
+            ulkelerVeBaskentleri.put(ulkeAdi, baskentAdi);
+
+        }
     }
 }

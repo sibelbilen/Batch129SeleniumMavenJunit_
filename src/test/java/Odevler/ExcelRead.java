@@ -36,5 +36,12 @@ Cell cell1=sheet1.getRow(0).getCell(1);
         System.out.println("cell2 = " + cell2);
         Assert.assertEquals("France",cell2.toString());
 
+        //son  Kullanılan satır sayısıni bulun
+        
+        int sonKullanilanSatirSayisi=sheet1.getLastRowNum();
+        System.out.println("sonKullanilanSatirSayisi = " + sonKullanilanSatirSayisi);
+        //fiziki olarak kac satir kullanilmistir?
+        int fiizki=sheet1.getPhysicalNumberOfRows();
+        System.out.println("fiizki = " + fiizki);
     }
 }
