@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ExcelRead {
     @Test
@@ -43,5 +45,15 @@ Cell cell1=sheet1.getRow(0).getCell(1);
         //fiziki olarak kac satir kullanilmistir?
         int fiizki=sheet1.getPhysicalNumberOfRows();
         System.out.println("fiizki = " + fiizki);
+        //Ülke-Başkent şeklinde verileri yazdırın
+
+        Map<String,String>UlkeBaskent=new HashMap<>();
+        for (int satirindeksi = 1; satirindeksi < fiizki; satirindeksi++) {
+            String ulkeAdi=sheet1.getRow(satirindeksi).getCell(0).toString();
+            String baskentAdi=sheet1.getRow(satirindeksi).getCell(1).toString();
+            UlkeBaskent.put(ulkeAdi,baskentAdi);
+            System.out.println("ulkelerVeBaskentleri = " + UlkeBaskent);
+
+        }
     }
 }

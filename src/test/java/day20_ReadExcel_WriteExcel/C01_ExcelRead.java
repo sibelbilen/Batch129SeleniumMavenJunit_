@@ -24,7 +24,7 @@ public class C01_ExcelRead  {
     @Test
     public void excelReadTest() throws IOException {
         //Dosyayı al:
-        FileInputStream fileInputStream =  new FileInputStream("TestOutput/Capitals.xlsx");
+        FileInputStream fileInputStream =  new FileInputStream("src/test/java/resources/Capitals.xlsx");
 
         //FileInputStream objesini WorkBook(Excel) dosyası olarak aç:
         Workbook workbook = WorkbookFactory.create(fileInputStream);
@@ -63,6 +63,7 @@ int sonkullanilanSatirIndexi=sheet1.getLastRowNum();
             String baskentAdi = sheet1.getRow(satirIndeks).getCell(1).toString();
 
             ulkelerVeBaskentleri.put(ulkeAdi, baskentAdi);
+            System.out.println("ulkelerVeBaskentleri = " + ulkelerVeBaskentleri);
 
         }
     }
