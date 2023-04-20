@@ -1,6 +1,7 @@
 package Odevler;
 
 import org.apache.poi.ss.usermodel.*;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.FileInputStream;
@@ -26,9 +27,14 @@ public class ExcelRead {
        
         System.out.println( cell);
         //        Capitals.xlsx dosyasından 1. satır 2. sütundaki hücreyi yazdırın
+Cell cell1=sheet1.getRow(0).getCell(1);
 
+        System.out.println("cell1 = " + cell1);
 
-
+     //  3. Satır 1. sütun değerini yazdırın ve "France" olduğunu test edin
+               Cell cell2=sheet1.getRow(2).getCell(0);
+        System.out.println("cell2 = " + cell2);
+        Assert.assertEquals("France",cell2.toString());
 
     }
 }
