@@ -60,7 +60,7 @@ int sonkullanilanSatirIndexi=sheet1.getLastRowNum();
         for (int satirIndeks = 1; satirIndeks <KullanilanToplamSatirSayisi; satirIndeks++) {
 
             String ulkeAdi = sheet1.getRow(satirIndeks).getCell(0).toString();
-            String baskentAdi = sheet1.getRow(satirIndeks).getCell(1).toString();
+            String baskentAdi = sheet1.getRow(satirIndeks).getCell(0).toString();
 
             ulkelerVeBaskentleri.put(ulkeAdi, baskentAdi);
             System.out.println("ulkelerVeBaskentleri = " + ulkelerVeBaskentleri);
