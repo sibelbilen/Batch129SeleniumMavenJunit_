@@ -47,12 +47,12 @@ extentTest.info("https://www.selenium.dev/downloads/ sayfasina gidildi");
 
         //Sayfanın resmini alalım
 
-//        String tarih=new SimpleDateFormat("_hh_mm_ss_ddmmyyyy").format(new Date());
-//        String dosyaYolu="TestOutput/Odev"+tarih;
-//
-//
-//        TakesScreenshot ts=(TakesScreenshot) driver;
-//        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+        String tarih1=new SimpleDateFormat("_hh_mm_ss_ddmmyyyy").format(new Date());
+        String dosyaYolu1="TestOutput/Odev"+tarih1;
+
+
+        TakesScreenshot ts=(TakesScreenshot) driver;
+        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu1));
 
         extentTest.info("sayfa resmi alindi");
 
@@ -71,21 +71,19 @@ extentTest.info("actions methoduyla sayfa asagiya kadar indirildi");
         //Browser bölümünden Chrome driver bölümündeki documentation linkine tıklıyalım
         driver.findElement(By.xpath("//*[@id=\"platforms-supported-by-selenium\"]/div/div/p[2]/button")).click();
       WebElement documentation= driver.findElement(By.cssSelector("#supported-browsers > div:nth-child(5) > div > div.col-md-10 > div > p > a"));
-      documentation.click();
+      documentation.submit();
       extentTest.info("linke tiklandi");
         //Documentation webelementinin resmini alalım
-//        String tarih =new SimpleDateFormat("hh_mm_ss_dd_mm_yyyy").format(new Date());
-//        String dosyaYolu="TestOutput/Odev"+tarih;
-//        TakesScreenshot ts=(TakesScreenshot) driver;
-//        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+        String tarih2 =new SimpleDateFormat("hh_mm_ss_dd_mm_yyyy").format(new Date());
+        String dosyaYolu2="TestOutput/Odev"+tarih2;
+        TakesScreenshot tss=(TakesScreenshot) driver;
+        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu2));
 extentTest.info("Documentation webelementinin resmi alindi");
         //All versions available in Downloads altında Latest stable release olan linki tıklayalım
         driver.findElement(By.xpath("//*[text()='ChromeDriver 112.0.5615.49']")).click();
 
         extentTest.info("All versions available in Downloads altında Latest stable release olan linki tıklandi");
         //Açılan pencerede chromedriver'i indirelim
-        WebElement latestReleaseLink = driver.findElement(By.xpath("/html/body/table/tbody/tr[7]/td[2]/a"));
-        latestReleaseLink.click();
 
         //Driver'in indiğini doğrulayalım
 
