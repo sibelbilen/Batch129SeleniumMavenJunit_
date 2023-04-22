@@ -30,4 +30,16 @@ workbook.write(fos);
 
 
     }
+
+    @Test
+    public void name() throws IOException {
+        FileInputStream fileInputStream=new FileInputStream("src/test/java/resources/Capitals.xlsx");
+
+        Workbook workbook= WorkbookFactory.create(fileInputStream);
+
+        workbook.getSheet("Sheet").getRow(4).createCell(2).setCellValue((String)null);
+
+        FileOutputStream fis=new FileOutputStream("src/test/java/resources/Capitals.xlsx");
+        workbook.write(fis);
+    }
 }
