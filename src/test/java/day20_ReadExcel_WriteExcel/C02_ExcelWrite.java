@@ -15,7 +15,7 @@ public class C02_ExcelWrite {
     Bir "NÜFUS" sütunu oluşturup başkent nüfuslarını excel doyasına yazınız:
     (D.C: 712816, Paris: 2161000, London: 8982000, Ankara: 5663000 ...)
      */
-        FileInputStream fis = new FileInputStream("src/test/java/resourses/Capitals (2).xlsx");
+        FileInputStream fis = new FileInputStream("src/test/java/resources/Capitals.xlsx");
         Workbook workbook = WorkbookFactory.create(fis);
         //Excel de bir veri yazdırabilmek için createCell() methodu kullanılır ve hücre içine yazdıracağımız değer için
         //setSellValue() methodu kullanılır
@@ -25,7 +25,7 @@ public class C02_ExcelWrite {
         workbook.getSheet("Sheet1").getRow(3).createCell(2).setCellValue(8982000);
         workbook.getSheet("Sheet1").getRow(4).createCell(2).setCellValue(5663000);
 
-        FileOutputStream fos = new FileOutputStream("src/test/java/resourses/Capitals (2).xlsx");
+        FileOutputStream fos = new FileOutputStream("src/test/java/resources/Capitals.xlsx");
         workbook.write(fos);
     }
 
