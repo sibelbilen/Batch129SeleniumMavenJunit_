@@ -24,28 +24,35 @@ Aynı sayfada tekrar Enroll Free elementi görünür olacak şekilde scroll et v
 //        "We Offer" elementi görünür olacak şekilde üzerine scroll et ve ekran görüntüsünü al
         WebElement weOffer = driver.findElement(By.xpath("//span[.='we offer']"));
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);",weOffer);
         bekle(3);
-        scrollIntoView(weOffer);//test base claasindaki method
+
+        scrollIntoView(weOffer);//scrollIntoView() ==> TestBase classındaki method
         tumSayfaResmi();
-        bekle(2);
+        bekle(3);
 
-//        Aynı sayfada "Enroll Free "elementi görünür olacak sekilde scroll et ve ekran görüntüsünü al
-WebElement enroollFree= driver.findElement(By.xpath("//*[text()='Enroll Free Course']"));
-scrollIntoView(enroollFree);
-tumSayfaResmi();
-
+//        Aynı sayfada "Enroll Free" elementi görünür olacak sekilde scroll et ve ekran görüntüsünü al
+        WebElement enrollFree = driver.findElement(By.xpath("//span[.='Enroll Free Course']"));
+        scrollIntoView(enrollFree);
+        tumSayfaResmi();
+        bekle(3);
 
 //        Aynı sayfada "WHY US?" elementi görünür olacak şekilde scroll et ve ekran görüntüsünü al
-        WebElement whyUs= driver.findElement(By.xpath("/h3[.='WHY US?']"));
+        WebElement whyUs = driver.findElement(By.xpath("//h3[.='WHY US?']"));
         scrollIntoView(whyUs);
         tumSayfaResmi();
-        bekle(2);
-//        Aynı sayfada tekrar "Enroll Free" elementi görünür olacak şekilde scroll et ve ekran görüntüsünü al
-scrollIntoView(enroollFree);
-tumSayfaResmi();
+        bekle(3);
 
+//        Aynı sayfada tekrar "Enroll Free" elementi görünür olacak şekilde scroll et ve ekran görüntüsünü al
+        scrollIntoView(enrollFree);
+        tumSayfaResmi();
+        bekle(3);
+
+        //Sayfayı en alta kaydır:
+        scrollEndJS();
+        bekle(3);
+
+        //Sayfayı en üste kaydır:
+        scrollTopJS();
     }
 
     }
