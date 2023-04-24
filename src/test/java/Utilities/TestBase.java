@@ -192,6 +192,12 @@ public abstract class TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
+    //Bu method sendKeys() methodunun alternatifidir.
+    public void typeWithJS(WebElement element, String text){
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('value','"+text+"')",element);
+
+    }
 
 }
