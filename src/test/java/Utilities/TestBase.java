@@ -181,4 +181,10 @@ public abstract class TestBase {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
 
     }
+
+    //Bu method ile sayfayı en alta kayıdırabilirim:
+    public void scrollEndJS(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
 }
