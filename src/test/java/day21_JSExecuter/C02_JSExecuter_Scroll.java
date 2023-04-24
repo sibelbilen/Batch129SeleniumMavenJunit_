@@ -26,11 +26,25 @@ Aynı sayfada tekrar Enroll Free elementi görünür olacak şekilde scroll et v
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",weOffer);
+        bekle(3);
+        scrollIntoView(weOffer);//test base claasindaki method
+        tumSayfaResmi();
+        bekle(2);
 
 //        Aynı sayfada "Enroll Free "elementi görünür olacak sekilde scroll et ve ekran görüntüsünü al
+WebElement enroollFree= driver.findElement(By.xpath("//*[text()='Enroll Free Course']"));
+scrollIntoView(enroollFree);
+tumSayfaResmi();
+
 
 //        Aynı sayfada "WHY US?" elementi görünür olacak şekilde scroll et ve ekran görüntüsünü al
+        WebElement whyUs= driver.findElement(By.xpath("/h3[.='WHY US?']"));
+        scrollIntoView(whyUs);
+        tumSayfaResmi();
+        bekle(2);
 //        Aynı sayfada tekrar "Enroll Free" elementi görünür olacak şekilde scroll et ve ekran görüntüsünü al
+scrollIntoView(enroollFree);
+tumSayfaResmi();
 
     }
 
