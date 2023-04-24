@@ -15,17 +15,15 @@ Arama kutusuna QA yaz
     @Test
     public void test01() {
 
-        //Techpro education ana sayfasina git
-        //        Techpro education ana sayfasına git
+//        Techpro education ana sayfasina git
         driver.get("https://techproeducation.com/");
         driver.findElement(By.xpath("//i[@class='eicon-close']")).click();
 
-
-        //Arama kutusuna QA yaz
-
+//        Arama kutusuna QA yaz
         WebElement searchBox = driver.findElement(By.xpath("//input[@type='search']"));
-        JavascriptExecutor js=(JavascriptExecutor) driver;
 
+        typeWithJS("QA", searchBox);
+        bekle(3);
 
     }
 }
