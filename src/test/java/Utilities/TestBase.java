@@ -148,6 +148,7 @@ public abstract class TestBase {
 
 
     }
+    //Bu method ile herhangi bir elemente JS Executer kullanarak tıklayabilirim:
     public void clickByJS(WebElement element){
 
         JavascriptExecutor jsExecuter = (JavascriptExecutor) driver;
