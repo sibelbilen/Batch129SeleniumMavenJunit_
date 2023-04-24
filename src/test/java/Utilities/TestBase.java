@@ -187,7 +187,7 @@ public abstract class TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
-    //Bu method ile sayfayı en alta kayıdırabilirim:
+    //Bu method ile sayfayı en uste kayıdırabilirim:
     public void scrollTopJS(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
