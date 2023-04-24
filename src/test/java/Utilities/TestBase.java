@@ -200,4 +200,16 @@ public abstract class TestBase {
 
     }
 
+    //Bu method ile attribute değerlerini alabilirim:
+    public void getValueByJS(String id, String attributeName) {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String attribute_Value = js.executeScript("return document.getElementById('" + id + "')." + attributeName).toString();
+        System.out.println("Attribute Value: = " + attribute_Value);
+//        NOT: document.querySelector("p").value;  -> TAG KULLANILABILIR
+//             document.querySelector(".example").value; -> CSS DEGERI KULLANILABILIR
+//             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
+
+    }
+
 }
