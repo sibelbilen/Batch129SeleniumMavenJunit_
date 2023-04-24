@@ -3,6 +3,8 @@ package day21_JSExecuter;
 import Utilities.TestBase;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 public class C03_JSExecuter_Type extends TestBase {
    /*
@@ -20,6 +22,10 @@ Arama kutusuna QA yaz
 
 
         //Arama kutusuna QA yaz
+
+        WebElement searchBox = driver.findElement(By.xpath("//input[@type='search']"));
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+
 
     }
 }
