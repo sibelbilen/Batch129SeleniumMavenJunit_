@@ -148,5 +148,11 @@ public abstract class TestBase {
 
 
     }
+    public void clickByJS(WebElement element){
+
+        JavascriptExecutor jsExecuter = (JavascriptExecutor) driver;
+        jsExecuter.executeScript("arguments[0].click();",element);
+
+    }
 
 }
