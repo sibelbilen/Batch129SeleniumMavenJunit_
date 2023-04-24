@@ -29,16 +29,16 @@ public class C01_JSExecuter_Click extends TestBase {
 
 //        Submit tuşuna tıkla
         WebElement submitButton = driver.findElement(By.xpath("//button[text()='Submit']"));
-        //submitButton.click(); ==> Selenium click() çalışmadı, JS Executer deniyorum:
+        //submitButton.click(); //ElementClickInterceptedException ==> Selenium click() çalışmadı, JS Executer deniyorum:
 
-        //Driver'ı JavascriptExecutor classına "cast" ediyoruz:
-        JavascriptExecutor jsExecuter = (JavascriptExecutor) driver;
-
-        //executeScript() metodu ile uygun script'i çalıştırıyoruz:
-        jsExecuter.executeScript("arguments[0].click();",submitButton);
+//        //Driver'ı JavascriptExecutor classına "cast" ediyoruz:
+//        JavascriptExecutor jsExecuter = (JavascriptExecutor) driver;
+//
+//        //executeScript() metodu ile uygun script'i çalıştırıyoruz:
+//        jsExecuter.executeScript("arguments[0].click();",submitButton);
 
         //clickByJS metodu oluşturarak gerekli yerlerde tıklama yapabiliriz:
-
+        clickByJS(submitButton);//TestBase classındaki clickByJS() methodu
 
 //        Sayfa adresinin "http://www.uitestpractice.com/Students/Form?optradio=on" olduğunu doğrula.
         assertEquals("http://www.uitestpractice.com/Students/Form?",driver.getCurrentUrl());
