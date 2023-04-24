@@ -31,6 +31,7 @@ public abstract class TestBase {
     protected static ExtentReports extentReports; //Raporlamayı başlatır
     protected static ExtentHtmlReporter extentHtmlReporter;//Raporu HTML formatında düzenler
     protected static ExtentTest extentTest;//Tüm test aşamalarında extentTest objesi ile bilgi ekleriz
+
     @Before
     public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
@@ -40,121 +41,144 @@ public abstract class TestBase {
         //----------------------------------------------------------------------------------------
         extentReports = new ExtentReports();
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String dosyaYolu = "TestOutput/reports/extentReport_"+tarih+".html";
+        String dosyaYolu = "TestOutput/reports/extentReport_" + tarih + ".html";
         extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
         extentReports.attachReporter(extentHtmlReporter);
         //Raporda gözükmesini istediğimiz bilgiler için
-        extentReports.setSystemInfo("Browser","Chrome");
-        extentReports.setSystemInfo("Teste","Erol");
+        extentReports.setSystemInfo("Browser", "Chrome");
+        extentReports.setSystemInfo("Teste", "Erol");
         extentHtmlReporter.config().setDocumentTitle("Extent Report");
         extentHtmlReporter.config().setReportName("Smoke Test Raporu");
-        extentTest=extentReports.createTest("ExtentTest","Test Raporu");
+        extentTest = extentReports.createTest("ExtentTest", "Test Raporu");
     }
+
     @After
     public void tearDown() throws Exception {
         extentReports.flush();
         bekle(3);
         //driver.quit();
     }
+
     //HARD WAIT METHOD
-    public static void bekle(int saniye){
+    public static void bekle(int saniye) {
         try {
-            Thread.sleep(saniye*1000);
+            Thread.sleep(saniye * 1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
+
     //Alert ACCEPT
-    public static void alertAccept(){
+    public static void alertAccept() {
         driver.switchTo().alert().accept();
     }
+
     //Alert DISMISS
-    public static void alertDismiss(){
+    public static void alertDismiss() {
         driver.switchTo().alert().dismiss();
     }
+
     //Alert getText()
-    public static void alertText(){
+    public static void alertText() {
         driver.switchTo().alert().getText();
     }
+
     //Alert promptBox
-    public static void alertprompt(String text){
+    public static void alertprompt(String text) {
         driver.switchTo().alert().sendKeys(text);
     }
+
     //DropDown VisibleText
     /*
         Select select2 = new Select(gun);
         select2.selectByVisibleText("7");
         //ddmVisibleText(gun,"7"); --> Yukarıdaki kullanım yerine sadece method ile handle edebilirim
      */
-    public static void ddmVisibleText(WebElement ddm,String secenek){
+    public static void ddmVisibleText(WebElement ddm, String secenek) {
         Select select = new Select(ddm);
         select.selectByVisibleText(secenek);
     }
+
     //DropDown Index
-    public static void ddmIndex(WebElement ddm,int index){
+    public static void ddmIndex(WebElement ddm, int index) {
         Select select = new Select(ddm);
         select.selectByIndex(index);
     }
+
     //DropDown Value
-    public static void ddmValue(WebElement ddm,String secenek){
+    public static void ddmValue(WebElement ddm, String secenek) {
         Select select = new Select(ddm);
         select.selectByValue(secenek);
     }
+
     //SwitchToWindow1
-    public static void switchToWindow(int sayi){
+    public static void switchToWindow(int sayi) {
         List<String> tumWindowHandles = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tumWindowHandles.get(sayi));
     }
+
     //SwitchToWindow2
-    public static void window(int sayi){
+    public static void window(int sayi) {
         driver.switchTo().window(driver.getWindowHandles().toArray()[sayi].toString());
     }
+
     //EXPLICIT WAIT METHODS
     //Visible Wait
-    public static void visibleWait(WebElement element,int sayi){
+    public static void visibleWait(WebElement element, int sayi) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     //VisibleElementLocator Wait
-    public static WebElement visibleWait(By locator, int sayi){
+    public static WebElement visibleWait(By locator, int sayi) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sayi));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     //Alert Wait
-    public static void alertWait(int sayi){
+    public static void alertWait(int sayi) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.alertIsPresent());
     }
+
     //Tüm Sayfa ScreenShot
-    public static void tumSayfaResmi(){
+    public static void tumSayfaResmi() {
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String dosyaYolu = "TestOutput/screenshot"+tarih+".png";
+        String dosyaYolu = "TestOutput/screenshot" + tarih + ".png";
         TakesScreenshot ts = (TakesScreenshot) driver;
         try {
-            FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+            FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
     //WebElement ScreenShot
-    public static void webElementResmi(WebElement element){
+    public static void webElementResmi(WebElement element) {
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String dosyaYolu = "TestOutput/webElementScreenshot"+tarih+".png";
+        String dosyaYolu = "TestOutput/webElementScreenshot" + tarih + ".png";
         try {
-            FileUtils.copyFile(element.getScreenshotAs(OutputType.FILE),new File(dosyaYolu));
+            FileUtils.copyFile(element.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
 
     }
+
     //Bu method ile herhangi bir elemente JS Executer kullanarak tıklayabilirim:
-    public void clickByJS(WebElement element){
+    public void clickByJS(WebElement element) {
 
         JavascriptExecutor jsExecuter = (JavascriptExecutor) driver;
-        jsExecuter.executeScript("arguments[0].click();",element);
+        jsExecuter.executeScript("arguments[0].click();", element);
 
     }
 
+    //Bu method ile herhangi bir elemente JS Executer kullanarak ekranı kaydırma yapabilirim:
+    public void scrollIntoView(WebElement element) {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
 
     }
+}
