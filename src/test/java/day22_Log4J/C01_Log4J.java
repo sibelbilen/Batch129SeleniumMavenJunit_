@@ -17,5 +17,7 @@ public class C01_Log4J  {
         logger.info("Info logger");
         logger.error("Error logger");
         logger.fatal("Fatal logger");
+
+
     }
 }
