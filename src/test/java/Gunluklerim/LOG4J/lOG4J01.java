@@ -10,10 +10,11 @@ public class lOG4J01 {
 
     @Test
     public void test01() {
+        logger.debug("onemli degil");
         logger.info("onemli degil");
         logger.fatal("onemli");
         logger.error("onemli");
-        logger.debug("onemli degil");
+
 
     }
 }
