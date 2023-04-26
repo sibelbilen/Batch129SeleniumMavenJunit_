@@ -69,7 +69,13 @@ ilkUrun.click();
         WebElement siparisOzeti = driver.findElement(By.xpath("//div[text()='Sipariş Özeti']"));
         System.out.println("SİPARİS OZETİ: " + siparisOzeti.getText());
         // Alisverisi tamamlayiniz
+        driver.findElement(By.xpath("//a[@class='btn btn-primary js-checkout-controls']")).click();
+        Thread.sleep(3000);
         // "Teknosa'ya hos geldiniz" webelementinin text'ini yazdiriniz
+        WebElement teknosayaHosgeldiniz = driver.findElement(By.xpath("//div[text()='Teknosa'ya Hoş Geldiniz']"));
+        System.out.println("TEKNOSAYA HOSGELDİNİZ TEXT: " + teknosayaHosgeldiniz.getText());
+        Thread.sleep(3000);
+
         // driver'i kapatiniz
     }
 }
