@@ -57,11 +57,17 @@ FileUtils.copyFile(ilkUrun.getScreenshotAs(OutputType.FILE),new File(dosyaYolu))
 ilkUrun.click();
 
         // iki ArrowDown sayfayı asagiya kaydirin
-        Actions actions=new Actions(driver);
+        Actions actions = new Actions(driver);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         // sepete ekleyiniz
+
+        driver.findElement(By.xpath("//button[@id='addToCartButton']")).click();
         // sepetim'e git tilayiniz
+        driver.findElement(By.xpath("//span[text()='Sepetime Git']")).click();
         // "Siparis Ozeti" webelementinin text'ini yazdiriniz
+
+        WebElement siparisOzeti = driver.findElement(By.xpath("//div[text()='Sipariş Özeti']"));
+        System.out.println("SİPARİS OZETİ: " + siparisOzeti.getText());
         // Alisverisi tamamlayiniz
         // "Teknosa'ya hos geldiniz" webelementinin text'ini yazdiriniz
         // driver'i kapatiniz
