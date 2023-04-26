@@ -34,68 +34,7 @@ public class TASK10 extends TestBase {
     //Not: Bu task'in her adımı için Html rapor oluşturalım(Extent Report)
 
 
-    @Test
-    public void test01() throws IOException {
-        extentReports = new ExtentReports();
-        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String dosyaYolu = "TestOutput/reports/extentReport_"+tarih+".html";
-        extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
-        extentReports.attachReporter(extentHtmlReporter);
 
-        extentTest=extentReports.createTest("extent test","test raporu");
-
-        //https://www.selenium.dev/downloads/ adresine gidelim
-        driver.get("https://www.selenium.dev/downloads/");
-
-extentTest.info("https://www.selenium.dev/downloads/ sayfasina gidildi");
-
-        //Sayfanın resmini alalım
-
-        String tarih1=new SimpleDateFormat("_hh_mm_ss_ddmmyyyy").format(new Date());
-        String dosyaYolu1="TestOutput/Odev"+tarih1;
-
-
-        TakesScreenshot ts=(TakesScreenshot) driver;
-        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu1));
-
-        extentTest.info("sayfa resmi alindi");
-
-        //Platforms Supported by Selenium altındaki Browsers bölümü görünene kadar sayfayı indirelim
-
-        Actions actions=new Actions(driver);
-
-        actions.sendKeys(Keys.PAGE_DOWN).
-                sendKeys(Keys.PAGE_DOWN).
-                sendKeys(Keys.PAGE_DOWN).
-                sendKeys(Keys.PAGE_DOWN).
-
-                perform();
-extentTest.info("actions methoduyla sayfa asagiya kadar indirildi");
-
-        //Browser bölümünden Chrome driver bölümündeki documentation linkine tıklıyalım
-        driver.findElement(By.xpath("//*[@id=\"platforms-supported-by-selenium\"]/div/div/p[2]/button")).click();
-      WebElement documentation= driver.findElement(By.cssSelector("#supported-browsers > div:nth-child(5) > div > div.col-md-10 > div > p > a"));
-      documentation.submit();
-      extentTest.info("linke tiklandi");
-        //Documentation webelementinin resmini alalım
-        String tarih2 =new SimpleDateFormat("hh_mm_ss_dd_mm_yyyy").format(new Date());
-        String dosyaYolu2="TestOutput/Odev"+tarih2;
-        TakesScreenshot tss=(TakesScreenshot) driver;
-        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu2));
-extentTest.info("Documentation webelementinin resmi alindi");
-        //All versions available in Downloads altında Latest stable release olan linki tıklayalım
-        driver.findElement(By.xpath("//*[text()='ChromeDriver 112.0.5615.49']")).click();
-
-        extentTest.info("All versions available in Downloads altında Latest stable release olan linki tıklandi");
-        //Açılan pencerede chromedriver'i indirelim
-
-        //Driver'in indiğini doğrulayalım
-
-
-        //İndirmiş olduğumuz dosyayı silelim
-        //Silindiğini doğrulayalım
-
-    }
     @Test
     public void name() throws InterruptedException {
         //https://www.selenium.dev/downloads/ adresine gidelim

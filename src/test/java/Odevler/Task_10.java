@@ -33,10 +33,10 @@ public class Task_10 extends TestBase {
         //Sayfanın resmini alalım
 
 
-        String tarih2 =new SimpleDateFormat("hh_mm_ss_dd_mm_yyyy").format(new Date());
-        String dosyaYolu2="TestOutput/Odev"+tarih2;
-        TakesScreenshot tss=(TakesScreenshot) driver;
-        FileUtils.copyFile(tss.getScreenshotAs(OutputType.FILE),new File(dosyaYolu2));
+//        String tarih2 =new SimpleDateFormat("hh_mm_ss_dd_mm_yyyy").format(new Date());
+//        String dosyaYolu2="TestOutput/Odev"+tarih2;
+//        TakesScreenshot tss=(TakesScreenshot) driver;
+//        FileUtils.copyFile(tss.getScreenshotAs(OutputType.FILE),new File(dosyaYolu2));
 
         //Platforms Supported by Selenium altındaki Browsers bölümü görünene kadar sayfayı indirelim
         Actions actions=new Actions(driver);
@@ -44,13 +44,29 @@ public class Task_10 extends TestBase {
         actions.sendKeys(Keys.PAGE_DOWN).
                 sendKeys(Keys.PAGE_DOWN).
                 sendKeys(Keys.PAGE_DOWN).
-                sendKeys(Keys.PAGE_DOWN).
-
                 perform();
         //Browser bölümünden Chrome driver bölümündeki documentation linkine tıklıyalım
+        driver.findElement(By.xpath("//*[@id=\"platforms-supported-by-selenium\"]/div/div/p[2]/button")).click();
+       WebElement chrome= driver.findElement(By.xpath("(//*[text()='documentation'])[5]"));
+       JavascriptExecutor js=(JavascriptExecutor) driver;
+       js.executeScript("arguments[0].click;",chrome);
+       clickByJS(chrome);
+
         //Documentation webelementinin resmini alalım
+
+//        String tarih=new SimpleDateFormat("ddmmyyyy").format(new Date());
+//        String dosyacik="TestOutput/Odevcik"+tarih;
+//        TakesScreenshot takesScreenshot=(TakesScreenshot)driver;
+//        FileUtils.copyFile(takesScreenshot.getScreenshotAs(OutputType.FILE),new File(dosyacik));
+
         //All versions available in Downloads altında Latest stable release olan linki tıklayalım
+        WebElement latest= driver.findElement(By.xpath("//*[text()='ChromeDriver 112.0.5615.49']"));
+        latest.click();
+
+
         //Açılan pencerede chromedriver'i indirelim
+
+
         //Driver'in indiğini doğrulayalım
         //İndirmiş olduğumuz dosyayı silelim
         //Silindiğini doğrulayalım
