@@ -2,132 +2,67 @@ package PRATICE_DERSI.DAY04;
 
 import Utilities.TestBase;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class C02 extends TestBase {
 
+    // https://the-internet.herokuapp.com/dynamic_controls adresine gidiniz
+    // Textbox'in etkin olmadıgını(enable) test edin
+    // Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
+    // It's enable! mesajının goruntulendigini test edin
+    // Textbox'in etkin oldugunu(enable) test edin
+
+
+    @Test
+    public void test01() {
+
+        // https://the-internet.herokuapp.com/dynamic_controls adresine gidiniz
+        driver.get("https://the-internet.herokuapp.com/dynamic_controls");
+
+
+        // Textbox'in etkin olmadıgını(enable) test edin
+        WebElement textBox = driver.findElement(By.xpath("//input[@type='text']"));
+        Assert.assertFalse(textBox.isEnabled());
+
+
+        // Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
+        WebElement enableButonu = driver.findElement(By.xpath("//button[text()='Enable']"));
+        enableButonu.click();
+
+        /*
+        daha fazla bekleme suresi gerektiren belirli webelementler icin wait kullanılır.
+         */
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(textBox));
+
+
+        // It's enable! mesajının goruntulendigini test edin
+        WebElement itsEnableYazisi = driver.findElement(By.xpath("//p[text()=\"It's enabled!\"]"));
+        Assert.assertTrue(itsEnableYazisi.isDisplayed());
+
+
+
+        // Textbox'in etkin oldugunu(enable) test edin
+        Assert.assertTrue(textBox.isEnabled());
 
 
 
 
-        // https://www.teknosa.com/ adresine gidin
-        // arama cubuguna oppo yazip enter'a basınız
-        // sonuc sayisini yazdiriniz
-        // ikinci urunun fotografını cekin
-        // cikan ikinci urune tiklayiniz
-        // iki ArrowDown sayfayı asagiya kaydirin
-        // sepete ekleyiniz
-        // sepetim'e git tilayiniz
-        // "Siparis Ozeti" webelementinin text'ini yazdiriniz
-        // Alisverisi tamamlayiniz
-        // "Teknosa'ya hos geldiniz" webelementinin text'ini yazdiriniz
-        // driver'i kapatiniz
-
-
-        @Test
-        public void test01() throws IOException, InterruptedException {
-
-            // https://www.teknosa.com/ adresine gidin
-            driver.get("https://www.teknosa.com/");
-            Thread.sleep(3000);
-
-
-
-            // arama cubuguna oppo yazip enter'a basınız
-            driver.findElement(By.xpath("//input[@id='search-input']")).sendKeys("Oppo" + Keys.ENTER);
-            Thread.sleep(3000);
-
-
-            // sonuc yazisini yazdiriniz
-            WebElement sonucYazisi = driver.findElement(By.xpath("//div[@class='plp-panel-block1']"));
-            System.out.println(sonucYazisi.getText());
-            Thread.sleep(3000);
-
-
-
-
-
-            // ilk urunun fotografını cekin
-            LocalDateTime date =LocalDateTime.now();
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYMMddHHmmss");
-            String tarih = date.format(dtf);
-
-
-            WebElement ilkUrun = driver.findElement(By.xpath("(//a[@class='prd-link gowitPlp-js'])[1]"));
-
-            File tumsayfa = new File("target/ekranGoruntusu/tumSayfa"+tarih+".Jpeg");
-
-            File gecici = ilkUrun.getScreenshotAs(OutputType.FILE);
-
-            FileUtils.copyFile(gecici,tumsayfa);
-            Thread.sleep(3000);
-
-
-
-
-
-            // cikan ilk urune tiklayiniz
-            ilkUrun.click();
-            Thread.sleep(3000);
-
-
-
-            // bir PAGE_DOWN sayfayı asagiya kaydirin
-            Actions actions = new Actions(driver);
-            actions.sendKeys(Keys.PAGE_DOWN).perform();
-            Thread.sleep(3000);
-
-
-
-
-
-
-            // sepete ekleyiniz
-            driver.findElement(By.xpath("//button[@id='addToCartButton']")).click();
-            Thread.sleep(3000);
-
-
-
-
-
-            // sepetim'e git tilayiniz
-            driver.findElement(By.xpath("//a[@class='btn btn-primary']")).click();
-            Thread.sleep(3000);
-
-
-
-
-            // "Siparis Ozeti" webelementinin text'ini yazdiriniz
-            WebElement siparisOzeti = driver.findElement(By.xpath("//div[text()='Sipariş Özeti']"));
-            System.out.println("SİPARİS OZETİ: " + siparisOzeti.getText());
-            Thread.sleep(3000);
-
-
-
-
-
-
-            // Alisverisi tamamlayiniz
-            driver.findElement(By.xpath("//a[@class='btn btn-primary js-checkout-controls']")).click();
-            Thread.sleep(3000);
-
-
-
-            // "Teknosa'ya hos geldiniz" webelementinin text'ini yazdiriniz
-            WebElement teknosayaHosgeldiniz = driver.findElement(By.xpath("//div[text()='Teknosa'ya Hoş Geldiniz']"));
-            System.out.println("TEKNOSAYA HOSGELDİNİZ TEXT: " + teknosayaHosgeldiniz.getText());
-            Thread.sleep(3000);
-
+    }
 
         }
-}
+
