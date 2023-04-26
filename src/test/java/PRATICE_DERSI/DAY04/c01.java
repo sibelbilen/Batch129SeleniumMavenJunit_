@@ -66,7 +66,7 @@ public class c01 extends TestBase {
 
         WebElement ilkUrun = driver.findElement(By.xpath("(//a[@class='prd-link gowitPlp-js'])[1]"));
 
-        File tumsayfa = new File("target/ekranGoruntusu/tumSayfa"+tarih+".Jpeg");
+        File tumsayfa = new File("TestOutput/ekranGoruntusu/tumSayfa"+tarih+".Jpeg");
 
         File gecici = ilkUrun.getScreenshotAs(OutputType.FILE);
 
