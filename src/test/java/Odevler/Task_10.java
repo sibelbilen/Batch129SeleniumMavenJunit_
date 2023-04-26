@@ -9,7 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Task_10 extends TestBase {
     //https://www.selenium.dev/downloads/ adresine gidelim
@@ -60,14 +62,22 @@ public class Task_10 extends TestBase {
 //        FileUtils.copyFile(takesScreenshot.getScreenshotAs(OutputType.FILE),new File(dosyacik));
 
         //All versions available in Downloads altında Latest stable release olan linki tıklayalım
-        WebElement latest= driver.findElement(By.xpath("//*[text()='ChromeDriver 112.0.5615.49']"));
+      WebElement latest= driver.findElement(By.xpath("//*[text()='ChromeDriver 112.0.5615.49']"));
         latest.click();
 
 
-        //Açılan pencerede chromedriver'i indirelim
+      List<String> pencereler = new ArrayList<>(driver.getWindowHandles());
+       driver.switchTo().window(pencereler.get(1));
 
+
+        //Açılan pencerede chromedriver'i indirelim
+     WebElement chromeDriver=   driver.findElement(By.xpath("//*[text()='chromedriver_win32.zip']"));
+     JavascriptExecutor javascriptExecutor=(JavascriptExecutor) driver;
+     javascriptExecutor.executeScript("arguments[0].click;",chromeDriver);
+     clickByJS(chromeDriver);
 
         //Driver'in indiğini doğrulayalım
+
         //İndirmiş olduğumuz dosyayı silelim
         //Silindiğini doğrulayalım
         //Not: Bu task'in her adımı için Html rapor oluşturalım(Extent Report)
