@@ -31,13 +31,12 @@ public class Task_10 extends TestBase {
         driver.get("https://www.selenium.dev/downloads/");
 
         //Sayfanın resmini alalım
-        String dosyayolu="TestOutput";
-        TakesScreenshot ts=(TakesScreenshot) driver;
-        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyayolu));
+
+
         String tarih2 =new SimpleDateFormat("hh_mm_ss_dd_mm_yyyy").format(new Date());
         String dosyaYolu2="TestOutput/Odev"+tarih2;
         TakesScreenshot tss=(TakesScreenshot) driver;
-        FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE),new File(dosyaYolu2));
+        FileUtils.copyFile(tss.getScreenshotAs(OutputType.FILE),new File(dosyaYolu2));
 
         //Platforms Supported by Selenium altındaki Browsers bölümü görünene kadar sayfayı indirelim
         Actions actions=new Actions(driver);
