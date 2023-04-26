@@ -27,9 +27,6 @@ public class Odev11  {
 
     @Test
     public void test01() throws IOException {
-        FileInputStream fis=  new FileInputStream("/C://Users//Casper//Desktop//jav.xml/");
-        Workbook workbook=WorkbookFactory.create(fis);
-        Sheet sheet=workbook.getSheet("shell1");
 
     }
 
