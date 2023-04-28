@@ -66,11 +66,11 @@ public class Odev09_Allert extends TestBase {
             //    3. butona tıklayın, uyarıdaki metin kutusuna isminizi yazin, OK butonuna
             //    tıklayın ve result mesajında isminizin görüntülendiğini doğrulayın.
             driver.findElement(By.cssSelector("button[onclick='jsPrompt()']")).click();
-            driver.switchTo().alert().sendKeys("Erol");
+            driver.switchTo().alert().sendKeys("sibel");
             driver.switchTo().alert().accept();
             Thread.sleep(3000);
             WebElement result = driver.findElement(By.cssSelector("p[id='result']"));
-            Assert.assertTrue(result.getText().contains("Erol"));
+            Assert.assertTrue(result.getText().contains("sibel"));
             System.out.println(result.getText());
         }
     }

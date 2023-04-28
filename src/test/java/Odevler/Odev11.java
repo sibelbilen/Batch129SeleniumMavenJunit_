@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import java.io.*;
 
-public class Odev11  {
+public class Odev11 {
     /*
     -İki tane test methodu oluşturalım
     -İlkinde masaüstünde java ile data.xlsx isimli bir dosya oluşturalım
@@ -24,46 +24,25 @@ public class Odev11  {
     -Excel dosyasından aldığımız kullanıcı bilgileri ile login olalım
     -Login olduğumuzu doğrulayalım
 */
+    FileInputStream fis = new FileInputStream("src/test/java/resources/data.xlsx.xlsx");
+    Workbook workbook = WorkbookFactory.create(fis);
+
+    public Odev11() throws IOException {
+    }
 
     @Test
     public void test01() throws IOException {
+        // Set the values of the cells
+        workbook.getSheet("Sheet1").getRow(0).createCell(0).setCellValue("email");
+        workbook.getSheet("Sheet1").getRow(0).createCell(1).setCellValue("password");
+        workbook.getSheet("Sheet1").getRow(1).createCell(0).setCellValue("sibelinko33@gmail.com");
+        workbook.getSheet("Sheet1").getRow(1).createCell(1).setCellValue("sibel");
 
-    }
-
-    @Test
-    public void test02() throws IOException {
-        // Excel dosyasını oluşturmak için gerekli kodlar
-        XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet sheet = workbook.createSheet("Data");
-
-        // Satır ve hücreleri oluşturma
-        XSSFRow row = sheet.createRow(0);
-        XSSFCell cell1 = row.createCell(0);
-        XSSFCell cell2 = row.createCell(1);
-
-        // Hücrelere veri yazma
-        cell1.setCellValue("email");
-        cell2.setCellValue("password");
-
-        row = sheet.createRow(1);
-        cell1 = row.createCell(0);
-        cell2 = row.createCell(1);
-
-        cell1.setCellValue("evren.techproed@gmail.com");
-        cell2.setCellValue("asdfgh");
-
-        // Dosyayı kaydetme
-        FileOutputStream outputStream = new FileOutputStream(new File("/C://Users//Casper//Desktop//jav.xml/"));
-        workbook.write(outputStream);
-        workbook.close();
-    }
-
-
-
-
-
-
+        // Save the changes
+        FileOutputStream fos = new FileOutputStream("src/test/java/resources/data.xlsx.xlsx");
+        workbook.write(fos);
+        fos.close();
 
 
     }
-
+}
