@@ -24,16 +24,18 @@ public class Odev11 {
     -Excel dosyasından aldığımız kullanıcı bilgileri ile login olalım
     -Login olduğumuzu doğrulayalım
 */
-    FileInputStream fis = new FileInputStream("src/test/java/resources/data.xlsx.xlsx");
-    Workbook workbook = WorkbookFactory.create(fis);
-
-    public Odev11() throws IOException {
-    }
+//    FileInputStream fis = new FileInputStream("src/test/java/resources/data.xlsx.xlsx");
+//    Workbook workbook = WorkbookFactory.create(fis);
+//
+//    public Odev11() throws IOException {
+//    }
 
     @Test
     public void test01() throws IOException {
+        FileInputStream fis = new FileInputStream("src/test/java/resources/data.xlsx.xlsx");
+        Workbook workbook = WorkbookFactory.create(fis);
         // Set the values of the cells
-        workbook.getSheet("Sheet1").getRow(0).createCell(0).setCellValue("email");
+        workbook.getSheet("Sheet1").getRow(1).createCell(0).setCellValue("email");
         workbook.getSheet("Sheet1").getRow(0).createCell(1).setCellValue("password");
         workbook.getSheet("Sheet1").getRow(1).createCell(0).setCellValue("sibelinko33@gmail.com");
         workbook.getSheet("Sheet1").getRow(1).createCell(1).setCellValue("sibel");
